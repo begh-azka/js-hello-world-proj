@@ -1,4 +1,4 @@
-name: ${{ github.event.repository.name }}
+name: js-hello-world-proj
 
 on:
   workflow_dispatch:
