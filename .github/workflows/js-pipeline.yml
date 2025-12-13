@@ -1,4 +1,4 @@
-name: js-hello-world-proj
+name: solar system
 
 on:
   workflow_dispatch:
