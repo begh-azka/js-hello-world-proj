@@ -3,12 +3,9 @@ name: CI
 
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic name for each run, e.g.:
-# solar-system-42
 
 on:
   workflow_dispatch:
-    # Manual trigger from the GitHub UI
-
     inputs:
       build_type:
         # User selects whether this is a Snapshot or Release build
