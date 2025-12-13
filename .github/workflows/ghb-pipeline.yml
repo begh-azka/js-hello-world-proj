@@ -50,7 +50,7 @@ on:
           - mpprd1
 
 jobs:
-  # call-central:
+  js:
     uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
     with:
       build_type: ${{ inputs.build_type }}
