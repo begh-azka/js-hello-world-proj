@@ -49,7 +49,7 @@ on:
 
 jobs:
   call-central:
-    uses: begh-azka/repo-b/.github/workflows/central-js.yml@main
+    uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
     with:
       environment: ${{ inputs.environment }}
       dev_server: ${{ inputs.dev_server }}
