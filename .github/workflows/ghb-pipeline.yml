@@ -1,11 +1,17 @@
 name: CI
+# Static workflow name shown in the Actions tab
 
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+# Dynamic name for each run, e.g.:
+# solar-system-42
 
 on:
   workflow_dispatch:
+    # Manual trigger from the GitHub UI
+
     inputs:
       build_type:
+        # User selects whether this is a Snapshot or Release build
         description: "Select Build type"
         required: true
         type: choice
@@ -14,47 +20,63 @@ on:
           - Release
 
       dev:
+        # DEV server selection (optional)
         description: "DEV server"
         required: false
         type: choice
         options:
-          - ''
+          - ''          # Means "no DEV server selected"
           - chdev1
           - mpdev1
 
       sit:
+        # SIT server selection (optional)
         description: "SIT server"
         required: false
         type: choice
         options:
-          - ''
+          - ''          # Means "no SIT server selected"
           - chsit1
           - mpsit1
 
       qa:
+        # QA server selection (optional)
         description: "QA server"
         required: false
         type: choice
         options:
-          - ''
+          - ''          # Means "no QA server selected"
           - chqa1
           - mpqa1
 
       prod:
+        # PROD server selection (optional)
         description: "PROD server"
         required: false
         type: choice
         options:
-          - ''
+          - ''          # Means "no PROD server selected"
           - chprd1
           - mpprd1
 
 jobs:
   js:
+    # Single job that calls a reusable workflow
     uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
+    # Calls the common pipeline defined in another repo (in this case public)
+
     with:
+      # Passes the selected build type to the reusable workflow
       build_type: ${{ inputs.build_type }}
+
+      # Passes DEV server selection (if any)
       dev: ${{ inputs.dev }}
+
+      # Passes SIT server selection (if any)
       sit: ${{ inputs.sit }}
+
+      # Passes QA server selection (if any)
       qa: ${{ inputs.qa }}
+
+      # Passes PROD server selection (if any)
       prod: ${{ inputs.prod }}
