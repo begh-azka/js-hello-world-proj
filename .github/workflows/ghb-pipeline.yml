@@ -51,7 +51,8 @@ jobs:
   call-central:
     uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
     with:
-      environment: ${{ inputs.environment }}
+      run_type: ${{ inputs.run_type }}
+      # environment: ${{ inputs.environment }}
       dev_server: ${{ inputs.dev_server }}
       sit_server: ${{ inputs.sit_server }}
       qa_server: ${{ inputs.qa_server }}
