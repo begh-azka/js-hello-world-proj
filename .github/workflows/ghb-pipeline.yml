@@ -1,5 +1,7 @@
 name: CI
-run-name: ${{ github.event.repository.name }}-${{ github.run_started_at[0:16] }}-${{ github.run_number }}
+
+run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+
 on:
   workflow_dispatch:
     inputs:
