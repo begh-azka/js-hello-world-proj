@@ -13,10 +13,10 @@ on:
           - snapshot
           - release
           
-      environment:
-        description: "Select Target Env"
-        required: false
-        type: environment
+      # environment:
+      #   description: "Select Target Env"
+      #   required: false
+      #   type: environment
 
       dev_server:
         description: "DEV server"
