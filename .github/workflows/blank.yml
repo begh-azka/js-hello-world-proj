@@ -25,6 +25,7 @@ on:
         required: false
         type: choice
         options:
+          - ''
           - chsit1
           - mpsit1
 
@@ -33,6 +34,7 @@ on:
         required: false
         type: choice
         options:
+          - ''
           - chqa1
           - mpqa1
 
@@ -41,6 +43,7 @@ on:
         required: false
         type: choice
         options:
+          - ''
           - chprd1
           - mpprd1
 
