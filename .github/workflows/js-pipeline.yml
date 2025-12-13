@@ -2,7 +2,17 @@ name: js-hello-world-proj
 
 on:
   workflow_dispatch:
+  
     inputs:
+    
+      run_type:
+        description: "Select run type"
+        required: true
+        type: choice
+        options:
+          - snapshot
+          - release
+          
       environment:
         description: "Select Target Env"
         required: false
