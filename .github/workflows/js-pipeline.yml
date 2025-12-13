@@ -1,1 +1,51 @@
+name: ${{ github.repository }}
 
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select Target Env"
+        required: false
+        type: environment
+
+      dev_server:
+        description: "DEV server"
+        required: false
+        type: choice
+        options:
+          - chdev1
+          - mpdev1
+
+      sit_server:
+        description: "SIT server"
+        required: false
+        type: choice
+        options:
+          - chsit1
+          - mpsit1
+
+      qa_server:
+        description: "QA server"
+        required: false
+        type: choice
+        options:
+          - chqa1
+          - mpqa1
+
+      prod_server:
+        description: "PROD server"
+        required: false
+        type: choice
+        options:
+          - chprd1
+          - mpprd1
+
+jobs:
+  call-central:
+    uses: begh-azka/repo-b/.github/workflows/central-js.yml@main
+    with:
+      environment: ${{ inputs.environment }}
+      dev_server: ${{ inputs.dev_server }}
+      sit_server: ${{ inputs.sit_server }}
+      qa_server: ${{ inputs.qa_server }}
+      prod_server: ${{ inputs.prod_server }}
