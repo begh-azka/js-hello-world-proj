@@ -65,7 +65,7 @@ on:
       dry_run:
         # REQUIRED: Boolean flag forwarded to the reusable workflow
         # Controls whether deployments should be simulated
-        description: "Run without making changes"
+        description: "Dry Run: "
         required: true
         type: boolean
         default: false
