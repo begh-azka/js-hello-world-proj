@@ -1,0 +1,108 @@
+name: CI
+# Static workflow name shown in the Actions tab
+
+run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+# Dynamic run name shown per execution (repo-name + run number)
+  
+on:
+  workflow_dispatch:
+    # Manual trigger from the GitHub UI
+
+    inputs:
+      build_type:
+        # REQUIRED: User selects Snapshot or Release build
+        description: "Select Build type"
+        required: true
+        type: choice
+        options:
+          - Snapshot
+          - Release
+
+      dev:
+        # Optional DEV server selection
+        # Empty value means DEV deployment will be skipped
+        description: "Dev"
+        required: false
+        type: choice
+        options:
+          - ''          # No DEV selected
+          - chdev1
+          - mpdev1
+
+      sit:
+        # Optional SIT server selection
+        # Empty value means SIT deployment will be skipped
+        description: "SIT"
+        required: false
+        type: choice
+        options:
+          - ''          # No SIT selected
+          - chsit1
+          - mpsit1
+
+      qa:
+        # Optional QA server selection
+        # Empty value means QA deployment will be skipped
+        description: "QA"
+        required: false
+        type: choice
+        options:
+          - ''          # No QA selected
+          - chqa1
+          - mpqa1
+
+      prod:
+        # Optional PROD server selection
+        # Empty value means PROD deployment will be skipped
+        description: "Prod"
+        required: false
+        type: choice
+        options:
+          - ''          # No PROD selected
+          - chprd1
+          - mpprd1
+
+      dry_run:
+        # REQUIRED: Boolean flag forwarded to the reusable workflow
+        # Controls whether deployments should be simulated
+        description: "Dry Run"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    # Single job that CALLS a reusable workflow using workflow_call
+    uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
+    # Points to the reusable workflow defined in another repository
+
+    with:
+      # Forwards build type to the reusable workflow
+      build_type: ${{ inputs.build_type }}
+      
+      # Forwards dry-run flag to the reusable workflow
+      dry_run: ${{ inputs.dry_run }}
+
+      MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+      #MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+    
+    secrets:
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+
+  PROD-Deployment:
+    uses: begh-azka/hello-world-repo/.github/workflows/deploy-js.yml@main
+    if: ${{ inputs.prod != '' }}
+
+    with:
+      # # Forwards DEV server selection (if any)
+      # dev: ${{ inputs.dev }}
+
+      # # Forwards SIT server selection (if any)
+      # sit: ${{ inputs.sit }}
+
+      # # Forwards QA server selection (if any)
+      # qa: ${{ inputs.qa }}
+
+      # Forwards PROD server selection (if any)
+      prod: ${{ inputs.prod }}
+
