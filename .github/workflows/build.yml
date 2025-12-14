@@ -73,7 +73,7 @@ on:
 jobs:
   build:
     # Single job that CALLS a reusable workflow using workflow_call
-    uses: begh-azka/hello-world-repo/.github/workflows/central-js.yml@main
+    uses: begh-azka/hello-world-repo/.github/workflows/build-js.yml@main
     # Points to the reusable workflow defined in another repository
 
     with:
@@ -105,4 +105,6 @@ jobs:
 
       # Forwards PROD server selection (if any)
       prod: ${{ inputs.prod }}
+      build_type: ${{ inputs.build_type }}
+      dry_run: ${{ inputs.dry_run }}
 
