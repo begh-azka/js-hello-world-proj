@@ -26,7 +26,7 @@ on:
       dev:
         # Optional DEV server selection
         # Empty value means DEV deployment will be skipped
-        description: "DEV Dev"
+        description: "Dev"
         required: false
         type: choice
         options:
@@ -37,7 +37,7 @@ on:
       sit:
         # Optional SIT server selection
         # Empty value means SIT deployment will be skipped
-        description: "SIT SIT"
+        description: "SIT"
         required: false
         type: choice
         options:
@@ -48,7 +48,7 @@ on:
       qa:
         # Optional QA server selection
         # Empty value means QA deployment will be skipped
-        description: "QA QA"
+        description: "QA"
         required: false
         type: choice
         options:
@@ -59,7 +59,7 @@ on:
       prod:
         # Optional PROD server selection
         # Empty value means PROD deployment will be skipped
-        description: "PROD Prod"
+        description: "Prod"
         required: false
         type: choice
         options:
