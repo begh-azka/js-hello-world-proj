@@ -18,38 +18,38 @@ on:
           - Snapshot
           - Release
 
-      dev:
-        # Optional DEV server selection
-        # Empty value means DEV deployment will be skipped
-        description: "Dev"
-        required: false
-        type: choice
-        options:
-          - ''          # No DEV selected
-          - chdev1
-          - mpdev1
+      # dev:
+      #   # Optional DEV server selection
+      #   # Empty value means DEV deployment will be skipped
+      #   description: "Dev"
+      #   required: false
+      #   type: choice
+      #   options:
+      #     - ''          # No DEV selected
+      #     - chdev1
+      #     - mpdev1
 
-      sit:
-        # Optional SIT server selection
-        # Empty value means SIT deployment will be skipped
-        description: "SIT"
-        required: false
-        type: choice
-        options:
-          - ''          # No SIT selected
-          - chsit1
-          - mpsit1
+      # sit:
+      #   # Optional SIT server selection
+      #   # Empty value means SIT deployment will be skipped
+      #   description: "SIT"
+      #   required: false
+      #   type: choice
+      #   options:
+      #     - ''          # No SIT selected
+      #     - chsit1
+      #     - mpsit1
 
-      qa:
-        # Optional QA server selection
-        # Empty value means QA deployment will be skipped
-        description: "QA"
-        required: false
-        type: choice
-        options:
-          - ''          # No QA selected
-          - chqa1
-          - mpqa1
+      # qa:
+      #   # Optional QA server selection
+      #   # Empty value means QA deployment will be skipped
+      #   description: "QA"
+      #   required: false
+      #   type: choice
+      #   options:
+      #     - ''          # No QA selected
+      #     - chqa1
+      #     - mpqa1
 
       prod:
         # Optional PROD server selection
