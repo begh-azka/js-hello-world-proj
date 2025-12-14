@@ -41,8 +41,9 @@ jobs:
       dry_run: ${{ inputs.dry_run }}
 
       MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
     
     secrets:
       MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+
