@@ -5,7 +5,6 @@ run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic run name shown per execution (repo-name + run number)
   
 on:
-  push:
   workflow_dispatch:
     # Manual trigger from the GitHub UI
 
