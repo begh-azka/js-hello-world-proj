@@ -1,4 +1,4 @@
-name: CI
+name: Experiment
 # Static workflow name shown in the Actions tab
 
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
