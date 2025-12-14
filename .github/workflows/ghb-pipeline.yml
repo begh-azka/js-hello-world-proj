@@ -21,7 +21,7 @@ on:
       dev:
         # Optional DEV server selection
         # Empty value means DEV deployment will be skipped
-        description: "DEV server"
+        description: "DEV Dev"
         required: false
         type: choice
         options:
@@ -32,7 +32,7 @@ on:
       sit:
         # Optional SIT server selection
         # Empty value means SIT deployment will be skipped
-        description: "SIT server"
+        description: "SIT SIT"
         required: false
         type: choice
         options:
@@ -43,7 +43,7 @@ on:
       qa:
         # Optional QA server selection
         # Empty value means QA deployment will be skipped
-        description: "QA server"
+        description: "QA QA"
         required: false
         type: choice
         options:
@@ -54,7 +54,7 @@ on:
       prod:
         # Optional PROD server selection
         # Empty value means PROD deployment will be skipped
-        description: "PROD server"
+        description: "PROD Prod"
         required: false
         type: choice
         options:
@@ -65,7 +65,7 @@ on:
       dry_run:
         # REQUIRED: Boolean flag forwarded to the reusable workflow
         # Controls whether deployments should be simulated
-        description: "Dry Run: "
+        description: "Dry Run"
         required: true
         type: boolean
         default: false
