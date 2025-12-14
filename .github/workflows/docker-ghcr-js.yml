@@ -1,9 +1,12 @@
 name: GHCR
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+
+permissions:
+  contents: read
+  packages: write
   
 on:
   workflow_dispatch:
-
     inputs:
       build_type:
         description: "Select Build type"
