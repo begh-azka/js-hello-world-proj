@@ -5,6 +5,7 @@ run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic run name shown per execution (repo-name + run number)
   
 on:
+  push:
   workflow_dispatch:
     # Manual trigger from the GitHub UI
 
@@ -35,18 +36,6 @@ jobs:
     with:
       # Forwards build type to the reusable workflow
       build_type: ${{ inputs.build_type }}
-
-      # Forwards DEV server selection (if any)
-      dev: ${{ inputs.dev }}
-
-      # Forwards SIT server selection (if any)
-      sit: ${{ inputs.sit }}
-
-      # Forwards QA server selection (if any)
-      qa: ${{ inputs.qa }}
-
-      # Forwards PROD server selection (if any)
-      prod: ${{ inputs.prod }}
 
       # Forwards dry-run flag to the reusable workflow
       dry_run: ${{ inputs.dry_run }}
