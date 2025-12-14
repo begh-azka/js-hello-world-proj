@@ -2,7 +2,7 @@
 set -e
 
 APP_DIR="/opt/node-app"
-IMAGE="$DOCKER_USERNAME/node-app:latest"
+IMAGE="$IMAGE_NAME:latest"
 CONTAINER_NAME="node-app"
 
 echo "Creating app directory..."
