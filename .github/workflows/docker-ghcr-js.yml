@@ -1,0 +1,33 @@
+name: Docker
+run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+  
+on:
+  push:
+  workflow_dispatch:
+
+    inputs:
+      build_type:
+        description: "Select Build type"
+        required: true
+        type: choice
+        options:
+          - Snapshot
+          - Release
+
+      dry_run:
+        description: "Dry Run"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  docker:
+    uses: begh-azka/hello-world-repo/.github/workflows/docker-ghcr-js.yml@main
+
+    with:
+      build_type: ${{ inputs.build_type }}
+      dry_run: ${{ inputs.dry_run }}
+      MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+    
+    secrets:
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
