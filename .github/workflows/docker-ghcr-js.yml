@@ -1,8 +1,7 @@
-name: Docker
+name: GHCR
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
   
 on:
-  push:
   workflow_dispatch:
 
     inputs:
