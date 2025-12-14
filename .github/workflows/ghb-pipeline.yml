@@ -4,6 +4,11 @@ name: CI
 run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic run name shown per execution (repo-name + run number)
 
+env:
+  MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+  MONGO_USERNAME: ${{ vars.MONGO_PASSWORD }}
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+  
 on:
   workflow_dispatch:
     # Manual trigger from the GitHub UI
