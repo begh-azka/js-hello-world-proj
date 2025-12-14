@@ -23,7 +23,7 @@ on:
         default: false
 
 jobs:
-  docker:
+  Docker:
     uses: begh-azka/hello-world-repo/.github/workflows/docker-ghcr-js.yml@main
 
     with:
