@@ -89,7 +89,7 @@ jobs:
     secrets:
       MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
-  PROD-Deployment:
+  Prod:
     uses: begh-azka/hello-world-repo/.github/workflows/deploy-js.yml@main
     if: ${{ inputs.prod != '' }}
 
