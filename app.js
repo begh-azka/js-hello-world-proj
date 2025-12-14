@@ -11,18 +11,29 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-mongoose.connect(process.env.MONGO_URI, {
+const config = {
+  mongo: {
+    host: 'supercluster.d83jj.mongodb.net',
+    db: 'superData',
     user: process.env.MONGO_USERNAME,
-    pass: process.env.MONGO_PASSWORD,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, function(err) {
-    if (err) {
-        console.log("error!! " + err)
-    } else {
-      //  console.log("MongoDB Connection Successful")
-    }
-})
+    pass: process.env.MONGO_PASSWORD
+  }
+};
+
+const MONGO_URI =
+  `mongodb+srv://${config.mongo.user}:${config.mongo.pass}` +
+  `@${config.mongo.host}/${config.mongo.db}`;
+
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, function (err) {
+  if (err) {
+    console.log("error!! " + err);
+  } else {
+    // console.log("MongoDB Connection Successful")
+  }
+});
 
 var Schema = mongoose.Schema;
 
