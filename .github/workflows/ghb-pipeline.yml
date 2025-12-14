@@ -55,6 +55,11 @@ on:
           - ''          # Means "no PROD server selected"
           - chprd1
           - mpprd1
+      dry_run:
+        description: "Run without making changes"
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   js:
@@ -77,3 +82,5 @@ jobs:
 
       # Passes PROD server selection (if any)
       prod: ${{ inputs.prod }}
+      
+      dry_run: ${{ inputs.dry_run }}
