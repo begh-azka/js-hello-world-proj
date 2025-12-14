@@ -1,7 +1,7 @@
 name: Experiment
 # Static workflow name shown in the Actions tab
 
-run-name: ${{ github.event.repository.name }}-${{ github.run_number }}
+run-name: Experiment-${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic run name shown per execution (repo-name + run number)
   
 on:
