@@ -7,6 +7,9 @@ run-name: PublishArtifactsJs-${{ github.event.repository.name }}-${{ github.run_
 permissions:
   packages: write
   
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+  
 on:
   workflow_dispatch:
     # Manual trigger from the GitHub UI
