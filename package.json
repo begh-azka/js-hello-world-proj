@@ -1,12 +1,16 @@
 {
-  "name": "@js-planets/solar-system",
+  "name": "@begh-azka/solar-system",
   "version": "6.7.6",
-  "license": "MIT",
+  "repository": "https://github.com/begh-azka/solar-system",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
   "scripts": {
     "start": "node app.js",
     "test": "mocha app-test.js --timeout 10000 --reporter mocha-junit-reporter --exit",
     "coverage": "nyc --reporter cobertura --reporter lcov --reporter text --reporter json-summary  mocha app-test.js --timeout 10000  --exit"
-  },
+  }
+},
   "nyc": {
     "check-coverage": true,
     "lines": 90
