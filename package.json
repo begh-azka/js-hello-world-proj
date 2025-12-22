@@ -1,9 +1,10 @@
 {
-  "name": "Solar System",
+  "name": "@begh-azka/solar-system",
   "version": "6.7.6",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octocat/my-other-repo.git"
+  },
   "author": "Siddharth Barahalikar <barahalikar.siddharth@gmail.com>",
   "homepage": "https://www.linkedin.com/in/barahalikar-siddharth/",
   "license": "MIT",
