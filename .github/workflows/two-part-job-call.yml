@@ -1,4 +1,4 @@
-name: Experiment
+name: Two-Part-Job-Call
 # Static workflow name shown in the Actions tab
 
 run-name: Experiment-${{ github.event.repository.name }}-${{ github.run_number }}
