@@ -1,1 +1,44 @@
+name: Publish Artifacts Js
+# Static workflow name shown in the Actions tab
 
+run-name: PublishArtifactsJs-${{ github.event.repository.name }}-${{ github.run_number }}
+# Dynamic run name shown per execution (repo-name + run number)
+  
+on:
+  workflow_dispatch:
+    # Manual trigger from the GitHub UI
+
+    inputs:
+      build_type:
+        # REQUIRED: User selects Snapshot or Release build
+        description: "Select Build type"
+        required: true
+        type: choice
+        options:
+          - Snapshot
+          - Release
+
+      dry_run:
+        # REQUIRED: Boolean flag forwarded to the reusable workflow
+        # Controls whether deployments should be simulated
+        description: "Dry Run"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  Buils:
+    name: Build and Publish Artifacts
+    uses: begh-azka/hello-world-repo/.github/workflows/publish-artifacts-js.yml@main 
+    # Points to the reusable workflow defined in another repository
+
+    with:
+      # Forwards build type to the reusable workflow
+      build_type: ${{ inputs.build_type }}
+      # Forwards dry-run flag to the reusable workflow
+      dry_run: ${{ inputs.dry_run }}
+
+      MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+    
+    secrets:
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
