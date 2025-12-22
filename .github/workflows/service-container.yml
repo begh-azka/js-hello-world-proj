@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mongodb:
-        image: mongo:6
+        image: siddharth67/mongo-db:non-prod
         env:
           MONGODB_URI: 'mongodb://localhost:27017/superData'
           MONGO_USERNAME: non-prod-user
