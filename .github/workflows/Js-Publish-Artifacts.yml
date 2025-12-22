@@ -3,6 +3,9 @@ name: Publish Artifacts Js
 
 run-name: PublishArtifactsJs-${{ github.event.repository.name }}-${{ github.run_number }}
 # Dynamic run name shown per execution (repo-name + run number)
+
+permissions:
+  packages: write
   
 on:
   workflow_dispatch:
@@ -37,7 +40,6 @@ jobs:
       build_type: ${{ inputs.build_type }}
       # Forwards dry-run flag to the reusable workflow
       dry_run: ${{ inputs.dry_run }}
-
       MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
     
     secrets:
