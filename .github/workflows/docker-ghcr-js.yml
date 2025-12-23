@@ -1,5 +1,5 @@
 name: GHCR
-run-name: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ inputs.build_type }}-${{ github.run_started_at }}-${{ github.run_number }}
+run-name: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ inputs.build_type }}
 
 permissions:
   contents: read
