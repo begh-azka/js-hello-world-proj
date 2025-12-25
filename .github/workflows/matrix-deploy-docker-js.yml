@@ -14,8 +14,14 @@ on:
           - prod
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello world. You have chosen ${{ inputs.env }}
+      
   deploy:
     name: Deploy to K8s
+    needs: build
     # strategy:
     #   max-parallel: 1
     #   matrix:
