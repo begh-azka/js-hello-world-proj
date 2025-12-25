@@ -1,0 +1,34 @@
+name: K8s Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      choice:
+        description: "Select environment"
+        required: true
+        type: choice
+        options:
+          - dev
+          - test
+          - prod
+
+jobs:
+  deploy:
+    name: Deploy to K8s
+    strategy:
+      max-parallel: 1
+      matrix:
+        env: ["${{ inputs.choice }}"]
+
+    environment: ${{ matrix.env }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Kubernetes
+        run: |
+          echo "Deploying to environment: ${{ matrix.env }}"
+          # kubectl apply -f manifests/${{ matrix.env }}/
