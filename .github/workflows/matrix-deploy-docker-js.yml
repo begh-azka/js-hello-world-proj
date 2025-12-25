@@ -1,4 +1,4 @@
-name: K8s Deployment
+name: Matrix Deployment
 
 on:
   workflow_dispatch:
@@ -32,6 +32,7 @@ jobs:
       - name: Deploy to Kubernetes
         if: ${{ inputs.env != '' }}
         run: |
-          echo "Deploying to ${{ inputs.env }}
+          echo "Deploying to ${{ inputs.env }}"
+          
           # echo "Deploying to environment: ${{ matrix.env }}"
           # kubectl apply -f manifests/${{ matrix.env }}/
