@@ -1,6 +1,8 @@
 name: Build-Deploy-Matrix-JS
 
 run-name: ${{ github.workflow }}-${{ inputs.build_type }}
+permission:
+  contents: write
   
 on:
   workflow_dispatch:
