@@ -58,7 +58,7 @@ on:
 
 jobs:
   JS:
-    uses: begh-azka/hello-world-repo/.github/workflows/different/build-deploy-matrix-js.yml@main
+    uses: begh-azka/hello-world-repo/.github/workflows/build-deploy-matrix-js.yml@main
     with:
       build_type: ${{ inputs.build_type }}
       dev: ${{ inputs.dev }}
