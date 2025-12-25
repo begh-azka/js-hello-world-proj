@@ -1,0 +1,74 @@
+name: Build-Deploy-Matrix-JS
+
+run-name: ${{ github.workflow }}-${{ inputs.build_type }}
+  
+on:
+  workflow_dispatch:
+
+    inputs:
+      build_type:
+        description: "Select Build type"
+        required: true
+        type: choice
+        options:
+          - Snapshot
+          - Release
+
+      dev:
+        description: "Dev"
+        required: false
+        type: choice
+        options:
+          - ''          # No DEV selected
+          - chdev1
+          - mpdev1
+
+      sit:
+        description: "SIT"
+        required: false
+        type: choice
+        options:
+          - ''          # No SIT selected
+          - chsit1
+          - mpsit1
+
+      qa:
+        description: "QA"
+        required: false
+        type: choice
+        options:
+          - ''          # No QA selected
+          - chqa1
+          - mpqa1
+
+      prod:
+        description: "Prod"
+        required: false
+        type: choice
+        options:
+          - ''          # No PROD selected
+          - chprd1
+          - mpprd1
+
+      dry_run:
+        description: "Dry Run"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  JS:
+    uses: begh-azka/hello-world-repo/.github/workflows/different/build-deploy-matrix-js.yml@main
+    with:
+      build_type: ${{ inputs.build_type }}
+      dev: ${{ inputs.dev }}
+      sit: ${{ inputs.sit }}
+      qa: ${{ inputs.qa }}
+      prod: ${{ inputs.prod }}
+      dry_run: ${{ inputs.dry_run }}
+
+      MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+      #MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+    
+    secrets:
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
