@@ -1,0 +1,39 @@
+name: K8s-Docker-JS
+run-name: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ inputs.build_type }}
+
+permissions:
+  packages: write
+  
+on:
+  workflow_dispatch:
+    inputs:
+      Artifact_Type:
+        required: false
+        type: string
+        default: zip
+        
+      build_type:
+        description: "Select Build type"
+        required: true
+        type: choice
+        options:
+          - Snapshot
+          - Release
+
+      dry_run:
+        description: "Dry Run"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  Docker:
+    uses: begh-azka/hello-world-repo/.github/workflows/kubernetes-js.yml@main
+
+    with:
+      build_type: ${{ inputs.build_type }}
+      dry_run: ${{ inputs.dry_run }}
+      MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+    
+    secrets:
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
