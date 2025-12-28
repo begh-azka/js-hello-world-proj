@@ -10,7 +10,8 @@ on:
         options: ['',prod,dev,sit,uat,tst]
         default: ''
         
-
+permissions:
+  packages: write
 jobs:
   js:
     uses: begh-azka/hello-world-repo/.github/workflows/common-pipeline.yml@main
