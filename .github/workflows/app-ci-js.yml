@@ -12,6 +12,7 @@ on:
         
 permissions:
   packages: write
+  contents: read
 jobs:
   js:
     uses: begh-azka/hello-world-repo/.github/workflows/common-pipeline.yml@main
