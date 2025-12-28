@@ -1,0 +1,20 @@
+name: App CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      env_type:
+        type: choice
+        options: ['',prod,dev,sit,uat,tst]
+        default: ''
+        
+
+jobs:
+  js:
+    uses: begh-azka/hello-world-repo/.github/workflows/common-pipeline.yml@main
+    with:
+      app_type: js
+      environment: ${{ inputs.env_type }}
+    # secrets: inherit
